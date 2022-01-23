@@ -23,6 +23,22 @@ function pigIt(str){
   
                               
   newstring = newstring.split(' ').slice(0,-1).join(' ');
+  
+  var lastword = newstring.split(' ');
+  
+  var regex = /^[A-Za-z0-9 ]+$/;
+  
+  if(!regex.test(newstring)){
+    var oldword = lastword.slice(-1).join();
+    var newword = oldword.replace('ay', '');   
+    newstring = lastword.pop();
+    
+    newstring = lastword.slice(0).join(' ');
+  
+    newstring = newstring + ' ' + newword;
+  }
+  
+  
   return newstring;
   
 }
