@@ -21,3 +21,43 @@ describe('description example', function() {
 
 Code : 
 
+function cakes(recipe, available) {
+  // TODO: insert code
+
+  let avaiableArr  = Object.entries(available);
+  let reciptArr    = Object.entries(recipe);
+    
+   let ReuseCount = [];
+  
+    for(const Rkey in recipe){
+       let RSIK = Rkey;
+       let RSIV = recipe[Rkey];
+
+      let countstatus = 0;
+      avaiableArr.forEach(function([element,values],index = 0){
+          if(element == RSIK){
+            countstatus = 1;
+          }
+      });
+      
+      if(countstatus == 0){
+        ReuseCount.push(0);
+      }
+      
+      for(const Akey in available){
+        let ASIK = Akey;
+        let ASIV = available[Rkey];
+
+        let max_count = 0;
+        if(RSIK == ASIK){
+            max_count = Math.floor(ASIV / RSIV);
+            ReuseCount.push(max_count);
+        }
+        
+      }
+        
+    }// close for
+  
+   return Math.min(...ReuseCount);
+}
+
