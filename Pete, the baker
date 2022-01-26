@@ -20,19 +20,22 @@ describe('description example', function() {
 
 
 Code : 
-
 function cakes(recipe, available) {
   // TODO: insert code
 
+  //Converting Object to array
   let avaiableArr  = Object.entries(available);
   let reciptArr    = Object.entries(recipe);
     
+  //Minimum Qunatity count
    let ReuseCount = [];
   
+    //Looping Object 
     for(const Rkey in recipe){
        let RSIK = Rkey;
        let RSIV = recipe[Rkey];
 
+      //Matching Recipe and Available items 
       let countstatus = 0;
       avaiableArr.forEach(function([element,values],index = 0){
           if(element == RSIK){
@@ -40,10 +43,12 @@ function cakes(recipe, available) {
           }
       });
       
+      //Both not Matching then 0 Added 
       if(countstatus == 0){
         ReuseCount.push(0);
       }
       
+      //Looping Available Object
       for(const Akey in available){
         let ASIK = Akey;
         let ASIV = available[Rkey];
@@ -57,7 +62,8 @@ function cakes(recipe, available) {
       }
         
     }// close for
-  
+
+  //Getting Minimum Quantity present in Array
    return Math.min(...ReuseCount);
 }
 
