@@ -18,22 +18,18 @@ Test.assertEquals(alphanumeric("     "), false)
 
 
 Code: 
-
 function alphanumeric(string){
   //your code here
   
-  string = string.split('');
   
   var StringCheck = true;
   
-  string.forEach(function(element , i = 0){
-      console.log(element);
-    if(element == ' '){
-      
-      StringCheck = false;
-      return;
-    }
-  });
+  var regex = /^[A-Za-z0-9]+$/;
+  
+  if(!regex.test(string)){
+    StringCheck = false;
+  }
+  
   
   return StringCheck;
   
